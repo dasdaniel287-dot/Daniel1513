@@ -1,0 +1,32 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master, v2.0 ]
+  pull_request:
+    branches: [ main, master, v2.0 ]
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: TypeScript Lint & Verification
+        run: npm run lint
+
+      - name: Execute Automated Anomaly & Defense Tests
+        run: npm test
+
+      - name: Build Production Frontend
+        run: npm run build

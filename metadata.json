@@ -1,0 +1,6 @@
+{
+  "name": "DDoS Shield AI — Advanced Version 2.0",
+  "description": "AI-assisted DDoS detection, real-time traffic monitoring, incident analysis, and automated defensive mitigation platform.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
